@@ -1,4 +1,3 @@
-const result = document.querySelector(".result");
 const notificationError = document.querySelector(".notification-error");
 
 if (window.Notification) {
