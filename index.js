@@ -13,7 +13,19 @@ const io = new Server(server);
 
 app.use(express.static(__dirname));
 
+let intervalId;
+
 io.on("connection", () => {
+  intervalId = setInterval(() => {
+    io.emit("message", "test value");
+  }, 10000);
+});
+
+io.on("disconnect", () => {
+  clearInterval(intervalId);
+});
+
+io.on("", () => {
   setInterval(() => {
     io.emit("message", "test value");
   }, 10000);
